@@ -1,0 +1,13 @@
+immutable_var= 12, 17, 105, 'kortej', True, ['да', 'нет']
+print(immutable_var)
+#immutable_var[0]= 100
+#эта операция невозможна т.к элемент неизменяемый
+#immutable_var[5][0]= 'nine'
+#print(immutable_var)
+#это операция возможна т.к в кортеже присутвует изменяемый объект
+mutable_list = [13, 24, 32.1, False, 'nigger']
+#print(mutable_list)
+mutable_list [0] = 'punch'
+mutable_list [3]= False
+mutable_list [-1]= 'white man'
+print(mutable_list)
