@@ -1,0 +1,57 @@
+import random
+
+code = random.randint(3, 20)
+password = {3: 12, 4: 13, 5: 1423, 6: 121524, 7: 162534, 8: 13172635, 9: 1218273645, 10: 141923283746,
+            11: 11029384756, 12: 12131511124210394857, 13: 112211310495867, 14: 1611325212343114105968,
+            15: 1214114232133124115106978, 16: 1317115262143531341251161079, 17: 11621531441351261171089,
+            18: 12151811724272163631545414513612711810, 19: 118217316415514613712811910,
+            20: 13141911923282183731746416515614713812911}
+print("В первом поле из камней выложено число:", code)
+#это первое что придумал
+if code == 3:
+    print('Ваш пароль:', password[3])
+elif code == 4:
+    print('Ваш пароль:', password[4])
+elif code == 5:
+    print('Ваш пароль:', password[5])
+elif code == 6:
+    print('Ваш пароль:', password[6])
+elif code == 7:
+    print('Ваш пароль:', password[7])
+elif code == 8:
+    print('Ваш пароль:', password[8])
+elif code == 9:
+    print('Ваш пароль:', password[9])
+elif code == 10:
+    print('Ваш пароль:', password[10])
+elif code == 11:
+    print('Ваш пароль:', password[11])
+elif code == 12:
+    print('Ваш пароль:', password[12])
+elif code == 13:
+    print('Ваш пароль:', password[13])
+elif code == 14:
+    print('Ваш пароль:', password[14])
+elif code == 15:
+    print('Ваш пароль:', password[15])
+elif code == 16:
+    print('Ваш пароль:', password[16])
+elif code == 17:
+    print('Ваш пароль:', password[17])
+elif code == 18:
+    print('Ваш пароль:', password[18])
+elif code == 19:
+    print('Ваш пароль:', password[19])
+elif code == 20:
+    print('Ваш пароль:', password[20])
+#а это решение подходит для больших случайных чисел нежели 20
+password_infinity = []
+for i in range(1, code):
+    for j in range(i, code + 1):
+        if code % (i + j) == 0 and i < j:
+            password_infinity.append((i, j))
+print("Быстрее тварь вводи пароль, а не то мы все сдохним:")
+password1 = ""
+for pair in password_infinity:
+    password1 += "".join(map(str, pair))
+print(password1)
