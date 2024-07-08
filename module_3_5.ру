@@ -1,0 +1,11 @@
+def get_multiplied_digits(n):
+    numbers=n
+    str_number=str(numbers)
+    if len(str_number) <= 1:
+        return int(str_number)
+    else:
+        first = int(str_number[0])
+        b = first * get_multiplied_digits(int(str_number[1:]))
+        return b
+result = get_multiplied_digits(40203)
+print(result)
