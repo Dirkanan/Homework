@@ -1,0 +1,30 @@
+import os
+import time
+file = [f for f in os. listdir() if os.path.isfile(f)]
+dirs = [d for d in os. listdir() if os.path.isdir(d)]
+# Укажите путь к директории
+directory = r'C:\Users\Юрий\PycharmProjects\home_works\Home-work\module7'
+
+# Обход каталога
+for dirpath, dirnames, filenames in os.walk(directory):
+    for filename in filenames:
+        # Формирование полного пути к файлу
+        full_path = os.path.join(dirpath, filename)
+
+        # Получение времени последнего изменения
+        mtime = os.path.getmtime(full_path)
+        last_modified_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(mtime))
+
+        # Получение размера файла
+        file_size = os.path.getsize(full_path)
+
+        # Получение родительской директории
+        parent_directory = os.path.dirname(full_path)
+
+        # Вывод информации о файле
+        print(f"Файл: {full_path}")
+        print(f"Последнее изменение: {last_modified_time}")
+        print(f"Размер: {file_size} байт")
+        print(f"Родительская директория: {parent_directory}")
+        print('-' * 40)
+
