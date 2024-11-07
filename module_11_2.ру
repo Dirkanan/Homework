@@ -1,0 +1,30 @@
+def introspection_info(obj):
+    object_type = type(obj).__name__
+    attributes = dir(obj)
+    methods = [attr for attr in attributes if callable(getattr(obj, attr))]
+    if hasattr(obj, '__module__'):
+        module = obj.__module__
+    else:
+        module = None
+
+    result = {
+        'type': object_type,
+        'attributes': attributes,
+        'methods': methods,
+        'module': module,
+    }
+
+    if isinstance(obj, (list, set, dict)):
+        result['length'] = len(obj)
+
+    return result
+
+
+number_info = introspection_info(42)
+print(number_info)
+
+string_info = introspection_info("Hello, world!")
+print(string_info)
+
+list_info = introspection_info([1, 2, 3])
+print(list_info)
