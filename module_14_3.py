@@ -54,6 +54,7 @@ async def get_buying_list(message):
 @dp.callback_query_handler(text='product_buying')
 async def send_confirm_message(call):
     await call.message.answer("Вы успешно приобрели продукт!")
+    await call.answer ()
 
 @dp.callback_query_handler(text='calories')
 async def set_age(call):
