@@ -8,7 +8,7 @@ from crud_functions import *
 import asyncio
 import aiogram
 
-api = "7852691549:AAHj_sknt77DkFWlCog5VFwspUsFvtp9bS0"
+api = ""
 bot = Bot(token=api)
 dp = Dispatcher(bot, storage=MemoryStorage())
 kb = ReplyKeyboardMarkup(resize_keyboard=True)
