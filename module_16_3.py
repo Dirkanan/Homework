@@ -9,8 +9,6 @@ users = {'1': 'Имя: Example, возраст: 18'}
 async def get_users():
     return users
 
-
-# POST запрос для добавления нового пользователя
 @app.post("/user/{username}/{age}")
 async def create_user(
         username: Annotated[str, Path( min_length=5, max_length=20, description="Enter username",)],
