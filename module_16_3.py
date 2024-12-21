@@ -23,11 +23,16 @@ async def create_user(
 async def update_user(user_id: Annotated[str, Path( min_length=1, max_length=3, description="Enter username",)],
         username: Annotated[str, Path( min_length=5, max_length=20, description="Enter username",)],
         age: Annotated[int, Path( ge=18, le=120, description="Enter age")]):
-    if user_id not in users:
-        raise HTTPException(status_code=404, detail="User not found")
-
-    users[user_id] = f"Имя: {username}, возраст: {age}"
-    return f"User {user_id} has been updated"
+@app.put("/user/{user_id}/{username}/{age}")
+async def update_user(user_id: Annotated[str, Path( min_length=1, max_length=3, description="Enter username",)],
+        username: Annotated[str, Path( min_length=5, max_length=20, description="Enter username",)],
+        age: Annotated[int, Path( ge=18, le=120, description="Enter age")]):
+    try:
+        users[user_id] = f"Имя: {username}, возраст: {age}"
+        return f"User {user_id} has been updated"
+    except IndexError:
+        if user_id not in users:
+            raise HTTPException(status_code=404, detail="User not found")
 
 
 @app.delete("/user/{user_id}")
