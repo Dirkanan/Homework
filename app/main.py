@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from routers import task, user
+from db import Base, engine
+from app.models import *
 
-app = FastAPI()
+Base.metadata.create_all(bind=engine)
 
 @app.get ("/")
 async def chill_boy():
