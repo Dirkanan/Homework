@@ -1,0 +1,36 @@
+{% extends "fourth_task/menu.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+    <menu>
+            {% block menu %}
+        <h3><a href="http://127.0.0.1:8000/">Главная</a></h3>
+        <h3><a href="http://127.0.0.1:8000/games/">Магазин</a></h3>
+        <h3><a href="http://127.0.0.1:8000/basket/">Корзина</a></h3>
+        <h3><a href="http://127.0.0.1:8000/reg/">Регистрация</a></h3>
+
+    <h2>{{ error }}</h2>
+    <form method="post">
+        {%csrf_token %}
+        <label for="username">Введите логин:</label>
+        <input type="text" id="username" name="username" maxlength="30" required>
+
+        <label for="password">Введите пароль:</label>
+        <input type="password" id="password" name="password" minlength="8" required>
+
+        <label for="repeat_password">Повторите пароль: </label>
+        <textarea type="password" id="repeat_password" name="repeat_password" minlength="8" required></textarea>
+
+        <label for="age">Введите свой возраст:</label>
+        <input type="number" id="age" name="age" required>
+
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+        {% endblock %}
+    </menu>
+</body>
+</html>
